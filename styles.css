@@ -1,0 +1,257 @@
+/************************************************
+
+#ffc627 GOLD
+#8c1d40 MAROON
+#7b7b7b GRAY
+#353535 GRAY
+#333333 GRAY-20
+#999999 GRAY-60
+#ededed GRAY-93
+
+GLOBAL
+************************************************/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	margin: 0 auto;
+	max-width: 1280px;
+}
+
+.navbar-brand img { width: 200px; }
+
+.error { color: #8c1d40; }
+
+/************************************************
+HEADER - NAVIGATION TOP
+************************************************/
+
+.custom-container { padding: 0; }
+
+.nav-top {
+	background-color: #fff;
+	border: none;
+	margin-bottom: 10px;
+}
+
+.navbar-default .navbar-nav>li  { padding-top: 0; }
+
+.navbar-default .navbar-nav>li>a {
+	color: #333;
+	font-size: .9em;
+	font-weight: 400;
+	padding: .5em .9em 0 0;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #8C1D40;
+	text-decoration: underline;
+}
+
+input#search-box {
+	border: 1px solid #999;
+	border-radius: 4px;
+	clear: both;
+	color: #333;
+	float: right;
+	font-size: .8em;
+	height: 1.5em;
+	margin: -10px 10px 0 0;
+	width: 170px;
+}
+
+/************************************************
+HEADER - NAVIGATION BOTTOM
+************************************************/
+
+.nav-bottom {
+	background-color: #353535;
+	border: none;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+nav.navbar.navbar-inverse.nav-bottom { padding-left: 50px; }
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 20px 25px 21px 20px;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+	background-color: #000;
+	color: #FFC627;
+}
+
+.active {
+	background-color: #000;
+	color: #FFC627;
+}
+
+/************************************************
+SLIDESHOW
+************************************************/
+
+#slides img {
+	display: none;
+	height: auto;
+	max-width: 100%;
+}
+
+#slider-banner {
+  	background-color: #000;
+  	height: 40px;
+  	margin: -4em 2em;
+	opacity: 0.6;
+	position: absolute;
+	width: 260px;
+}
+
+#slider-caption {
+  	color: #fff;
+  	font-style: oblique;
+  	font-size: 24px;
+  	margin: 0 0 0 1em;
+	padding-top: .3em;
+}
+
+/************************************************
+BOXES
+************************************************/
+
+.custom-boxes { margin-top: 2.5em; }
+
+.custom-box-1 {
+	background-color: #7b7b7b;
+	border-radius: 4px;
+	color: #fff;
+	height: 17em;
+	margin-bottom: 2em;
+	padding: 1.2em;
+}
+
+.custom-box-1>h2 {
+	font-size: 1.6em;
+	font-weight: 700;
+	margin: 0;
+}
+
+.custom-box-1-discover {
+	border-bottom: 1px dotted #fff;
+	color: #fff;
+	font-size: .8em;
+	margin-left: 16px;
+}
+
+.custom-box-2 {
+	background-color: #ffc627;
+	border-radius: 4px;
+	height: 17em;
+	margin-bottom: 2em;
+	padding: 1.2em;
+}
+
+.custom-box-2>a {
+	display: inline-block;
+	color: #333;
+	font-size: 1.7em;
+	font-weight: 800;
+}
+
+.custom-box-2>a:nth-child(2) {
+	color: #8c1d40;
+	font-size: 1em;
+	margin-top: 5.5em;
+}
+
+.custom-box-2>a:hover { color: #8c1d40; }
+
+form {
+	margin-top: .5em;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+input, select { color: #999; }
+
+input.form-inputs-3 {
+	border: 1px solid #fff;
+	border-radius: 4px;
+	margin: 1em .3em .5em 0;
+	padding-left: .4em;
+}
+
+input.form-inputs-1 {
+	margin-right: .7em;
+	margin-top: 0;
+}
+
+input.form-inputs-1:nth-child(2) { margin-left: 1em; }
+
+input.form-inputs-2 { display: block; }
+
+.action-1-button-1, .action-1-button-2 {
+	background-color: #8c1d40;
+	border-radius: 4px;
+	color: #fff;
+	display: inline-block;
+	font-size: 1em;
+	padding: .9em 2em;
+}
+
+.action-1-button-1 { margin-top: 1em; }
+
+.action-1-button-2 { margin-top: 2.5em; }
+
+#btn-admin {
+	background-color: #8c1d40;
+	color: #fff;
+	margin-bottom: 2em;
+}
+
+/************************************************
+ADMINISTRATOR
+************************************************/
+
+.form-custom {
+	background-color: #999;
+	border-radius: 4px;
+	padding: 15px;
+}
+
+#add-class {
+	background-color: #ffc627;
+	border: #ffc627;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/************************************************
+MEDIA QUERIES
+************************************************/
+
+@media only screen and (min-width : 480px) {
+
+    }
+
+ @media only screen and (min-width : 768px) {
+
+	.custom-container { padding: 0 3em; }
+
+	#slider-banner {
+	  	background-color: #000;
+	  	height: 60px;
+	  	margin: -6em 2em;
+		opacity: 0.6;
+		position: absolute;
+		width: 360px;
+	}
+
+	#slider-caption {
+	  	font-size: 36px;
+	  	margin: 0 0 50 1em;
+		padding-top: .3em;
+	}
+
+}

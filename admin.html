@@ -1,0 +1,178 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Arizona State University</title>
+	<!--meta tags-->
+	<meta charset="UTF-8"/>
+	<meta name="description" content="Arizona State University in Tempe, AZ is a public research university ranked #1 in the U.S. for innovation, dedicated to accessibility and excellence.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--style elements-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="https://use.fontawesome.com/10825deddc.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+	<header>
+		<div class="container-fluid">
+			<nav class="navbar navbar-default nav-top">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="index.html"><img src="images/asu-logo.png" alt="Arizona State University Logo"></a>
+
+				<div class="collapse navbar-collapse" id="top-navbar">
+
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+        					<a class="dropdown-toggle" data-toggle="dropdown" href="#">ASU Home<span class="caret"></span></a>
+        					<ul class="dropdown-menu">
+          						<li><a href="#">News/Events</a></li>
+          						<li><a href="#">Academics</a></li>
+        					</ul>
+						</li>
+
+						<li><a href="#">My ASU</a></li>
+
+						<li class="dropdown">
+        					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Colleges and Schools<span class="caret"></span></a>
+        					<ul class="dropdown-menu">
+          						<li><a href="#">Arts and Sciences</a></li>
+          						<li><a href="#">Business</a></li>
+        					</ul>
+      					</li>
+
+						<li class="dropdown">
+        					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Maps and Locations<span class="caret"></span></a>
+        					<ul class="dropdown-menu">
+          						<li><a href="#">Arts and Sciences</a></li>
+          						<li><a href="#">Business</a></li>
+        					</ul>
+      					</li>
+
+						<li><a href="#">Directory</a></li>
+						<li><a href="#">|</a></li>
+						<li><a href="#"><strong>Keith</strong></a></li>
+						<li><a href="#">SIGN OUT</a></li>
+					</ul>
+
+					<label for="search-box" class="search-box"></label>
+						<input type="text" id="search-box" placeholder="Search">
+				</div> <!--collapse navbar-collapse-->
+			</nav>
+		</div> <!--container-fluid-->
+
+		<nav class="navbar navbar-inverse nav-bottom">
+
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bottom-navbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="bottom-navbar">
+
+			<ul class="nav navbar-nav">
+				<li><a href="#" id="current"><i class="fa fa-home" aria-hidden="true" title="Home Icon"></i></a></li>
+				<li><a href="#">News/Events</a></li>
+				<li><a href="#">Academics</a></li>
+				<li><a href="#">Research</a></li>
+				<li><a href="#">Athletics</a></li>
+				<li><a href="#">Alumni</a></li>
+				<li><a href="#">Giving</a></li>
+				<li><a href="#">President</a></li>
+				<li><a href="#">About ASU</a></li>
+			</ul>
+			</div> <!--collapse navbar-collapse-->
+		</nav>
+	</header>
+
+	<main>
+
+		<section class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Add a class:</h2>
+					<form class="form-custom" id="maintenance">
+						<div class="form-group">
+							<label for="class-name">Class Name</label>
+							<input type="text" name="class-name" class="form-control" id="course-name" placeholder="JavaScript">
+                            <span id="error-course-name" class="error"></span>
+						</div> <!--form-group-->
+						<div class="form-group">
+							<label for="class-number">Class Number</label>
+								<input type="text" name="class-number" class="form-control" id="course-number" maxlength="10" placeholder="GIT-418">
+                                <span id="error-course-number" class="error"></span>
+						</div> <!--form-group-->
+						<div class="form-group">
+							<label for="start-date">Start Date</label>
+								<input type="text" name="start-date" class="form-control" id="course-date" maxlength="10" placeholder="01/31/2018">
+                                <span id="error-course-start" class="error"></span>
+						</div> <!--form-group-->
+						<div class="form-group">
+							<label for="class-length">Class Length</label>
+								<select name="class-length" class="form-control" id="course-length">
+									<option>6</option>
+									<option>7.5</option>
+									<option>15</option>
+								</select>
+						</div> <!--form-group-->
+						<div class="form-group">
+							<label for="week-day">Weekday</label>
+								<select name="week-day" class="form-control" id="course-day">
+									<option>MWF</option>
+									<option>TH</option>
+								</select>
+						</div> <!--form-group-->
+						<div class="form-group">
+							<label for="class-time">Time</label>
+								<select name="class-time" class="form-control" id="course-time">
+									<option>08:00</option>
+									<option>1:00</option>
+									<option>4:00</option>
+									<option>7:00</option>
+								</select>
+						</div> <!--form-group-->
+						<div class="form-group">
+							<label for="class-desc">Description</label>
+								<input type="text" class="form-control" id="course-desc" placeholder="Advanced Techniques"></textarea>
+                                <span id="error-course-description" class="error"></span>
+						</div> <!--form-group-->
+						<div class="form-group">
+							<button type="button" name="add-class" class="btn btn-default btn-block" id="add-class" value="add">Add</button>
+						</div> <!--form-group-->
+		 		    </form>
+				</div> <!--col-md-4-->
+
+				<div class="col-md-8">
+					<h2>Current Classes:</h2>
+					<table class="table table-striped table-responsive" id="classes-table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Number</th>
+								<th>Start</th>
+								<th>Length</th>
+								<th>Weekday</th>
+								<th>Time</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody id="table-body-courses"></tbody>
+					</table>
+				</div> <!--col-md-8-->
+			</div> <!--row-->
+		</section>
+
+	</main>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
