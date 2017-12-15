@@ -30,14 +30,14 @@ var addClass = function() {
 
     courses.push(course);
 
-    addLocalStorage(courses);
+    addLocalStorage();
 
-    addCourseToTable(courses);
+    addCourseToTable(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc);
 
 };
 
-var addCourseToTable = function(courses) {
-    
+var addCourseToTable = function(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc) {
+    getById("table-body-courses").innerHTML += "<tr><td>" + courseName + "</td><td>" + courseNumber + "</td><td>" + courseDate + "</td><td>" + courseLength + "</td><td>" + courseDay + "</td><td>" + courseTime + "</td><td>" + courseDesc + "</td></tr>";  
 };
 
 var addLocalStorage = function() {
