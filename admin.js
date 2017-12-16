@@ -34,10 +34,20 @@ var addClass = function() {
 
     addCourseToTable(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc);
 
+    refreshTable();
+
+};
+
+var refreshTable = function() {
+    getById("course-name").value = "";
+    getById("course-number").value = "";
+    getById("course-date").value = "";
+    getById("course-desc").value = "";
+    getById("course-name").focus();
 };
 
 var addCourseToTable = function(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc) {
-    getById("table-body-courses").innerHTML += "<tr><td>" + courseName + "</td><td>" + courseNumber + "</td><td>" + courseDate + "</td><td>" + courseLength + "</td><td>" + courseDay + "</td><td>" + courseTime + "</td><td>" + courseDesc + "</td></tr>";  
+    getById("table-body-courses").innerHTML += "<tr><td>" + courseName + "</td><td>" + courseNumber + "</td><td>" + courseDate + "</td><td>" + courseLength + "</td><td>" + courseDay + "</td><td>" + courseTime + "</td><td>" + courseDesc + "</td></tr>";
 };
 
 var addLocalStorage = function() {
@@ -95,4 +105,5 @@ var validateInput = function(courseName, courseNumber, courseDate, courseLength,
 
 window.onload = function() {
     getById("add-class").onclick = addClass;
+    getById("course-name").focus();
 }
