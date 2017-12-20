@@ -60,12 +60,16 @@ var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
 
     if (courseName === "") {
         getById("error-course-name").innerHTML = "Enter a Class Name";
+        getById("course-name").focus();
         isValid = false;
     }
 
     if (courseNumber === "") {
         getById("error-course-number").innerHTML = "Enter a Class Number";
-        isValid = false;
+        if (isValid === true) {
+            getById("course-number").focus();
+            isValid = false;
+        }
     }
     else {
 
@@ -73,13 +77,18 @@ var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
 
         if (courseNumberPattern.test(courseNumber) === false) {
             getById("error-course-number").innerHTML = "Must be ABC-123 Format";
-            isValid = false;
+            if (isValid === true) {
+                getById("course-number").focus();
+                isValid = false;
+            }
         }
     }
-
     if (courseDate === "") {
         getById("error-course-start").innerHTML = "Enter a Start Date";
-        isValid = false;
+        if (isValid === true) {
+            getById("course-date").focus();
+            isValid = false;
+        }
     }
     else {
 
@@ -87,7 +96,10 @@ var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
 
         if (courseDatePattern.test(courseDate) === false) {
             getById("error-course-start").innerHTML = "Must be XX/XX/XXXX Format";
-            isValid = false;
+            if (isValid === true) {
+                getById("course-date").focus();
+                isValid = false;
+            }
         }
     }
 
@@ -95,7 +107,10 @@ var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
 
     if (courseDateObject.toString() === "Invalid Date") {
         getById("error-course-start").innerHTML = "Enter a Valid Date";
-        isValid = false;
+        if (isValid === true) {
+            getById("course-date").focus();
+            isValid = false;
+        }
     }
     else {
         var today = new Date();
@@ -103,15 +118,21 @@ var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
 
         if (dateDifference < 0) {
             getById("error-course-start").innerHTML = "Enter a Future Date";
-            isValid = false;
+            if (isValid === true) {
+                getById("course-date").focus();
+                isValid = false;
+            }
         }
     }
 
     if (courseDesc === "") {
         getById("error-course-description").innerHTML = "Enter a Class Description";
-        isValid = false;
-     }
-     return isValid;
+        if (isValid === true) {
+            getById("course-desc").focus();
+            isValid = false;
+        }
+    }
+    return isValid;
 };
 
 var addCourseToTable = function(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc) {
@@ -124,13 +145,9 @@ var addLocalStorage = function() {
 
 var refreshForm = function() {
     getById("course-name").value = "";
-    //getById("error-course-name").innerHTML = "";
     getById("course-number").value = "";
-    //getById("error-course-number").innerHTML = "";
     getById("course-date").value = "";
-    //getById("error-course-start").innerHTML = "";
     getById("course-desc").value = "";
-    //getById("error-course-description").innerHTML = "";
     getById("course-name").focus();
 };
 
