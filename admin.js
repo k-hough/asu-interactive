@@ -5,7 +5,17 @@ const LOCAL_STORAGE_KEY = "asu-courses";
 var getById = function (id) { return document.getElementById(id); };
 var courses = [];
 
+/*
+var getLocalStorage = function() {
+    if (localStorage.length > 0) {
+        console.log(localStorage.length);
+    }
+};
+*/
+
 var addClass = function() {
+
+    //checkLocalStorage();
 
     var course = {};
     var courseName = getById("course-name").value;
@@ -16,49 +26,37 @@ var addClass = function() {
     var courseTime = getById("course-time").value;
     var courseDesc = getById("course-desc").value;
 
-    validateInput(courseName, courseNumber, courseDate, courseDesc);
+    if (validateInput(courseName, courseNumber, courseDate, courseDesc) === true) {
 
-    course = {
-        name: courseName,
-        number: courseNumber,
-        date: courseDate,
-        length: courseLength,
-        day: courseDay,
-        time: courseTime,
-        description: courseDesc
+        course = {
+                name: courseName,
+                number: courseNumber,
+                date: courseDate,
+                length: courseLength,
+                day: courseDay,
+                time: courseTime,
+                description: courseDesc
+            };
+
+            courses.push(course);
+
+            addLocalStorage();
+
+            addCourseToTable(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc);
+
+            refreshForm();
+
     };
 
-    courses.push(course);
-
-    addLocalStorage();
-
-    addCourseToTable(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc);
-
-    refreshForm();
-
-};
-
-var refreshForm = function() {
-    getById("course-name").value = "";
-    getById("error-course-name").innerHTML = "";
-    getById("course-number").value = "";
-    getById("error-course-number").innerHTML = "";
-    getById("course-date").value = "";
-    getById("error-course-start").innerHTML = "";
-    getById("course-desc").value = "";
-    getById("error-course-description").innerHTML = "";
-    getById("course-name").focus();
-};
-
-var addCourseToTable = function(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc) {
-    getById("table-body-courses").innerHTML += "<tr><td>" + courseName + "</td><td>" + courseNumber + "</td><td>" + courseDate + "</td><td>" + courseLength + "</td><td>" + courseDay + "</td><td>" + courseTime + "</td><td>" + courseDesc + "</td></tr>";
-};
-
-var addLocalStorage = function() {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(courses));
 };
 
 var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
+
+    var isValid = true;
+    getById("error-course-name").innerHTML = "";
+    getById("error-course-number").innerHTML = "";
+    getById("error-course-start").innerHTML = "";
+    getById("error-course-description").innerHTML = "";
 
     if (courseName === "") {
         getById("error-course-name").innerHTML = "Enter a Class Name";
@@ -113,9 +111,33 @@ var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
         getById("error-course-description").innerHTML = "Enter a Class Description";
         isValid = false;
      }
+     return isValid;
 };
 
+var addCourseToTable = function(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc) {
+        getById("table-body-courses").innerHTML += "<tr><td>" + courseName + "</td><td>" + courseNumber + "</td><td>" + courseDate + "</td><td>" + courseLength + "</td><td>" + courseDay + "</td><td>" + courseTime + "</td><td>" + courseDesc + "</td></tr>";
+};
+
+var addLocalStorage = function() {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(courses));
+};
+
+var refreshForm = function() {
+    getById("course-name").value = "";
+    //getById("error-course-name").innerHTML = "";
+    getById("course-number").value = "";
+    //getById("error-course-number").innerHTML = "";
+    getById("course-date").value = "";
+    //getById("error-course-start").innerHTML = "";
+    getById("course-desc").value = "";
+    //getById("error-course-description").innerHTML = "";
+    getById("course-name").focus();
+};
+
+
 window.onload = function() {
+
     getById("add-class").onclick = addClass;
+    //getLocalStorage();
     getById("course-name").focus();
 }
