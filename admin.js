@@ -5,18 +5,29 @@ const LOCAL_STORAGE_KEY = "asu-courses";
 var getById = function (id) { return document.getElementById(id); };
 var courses = [];
 
-/*
 var getLocalStorage = function() {
-    if (localStorage.length > 0) {
-        console.log(localStorage.length);
+    var test = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (test !== null) {
+        courses = JSON.parse(test);
+
+        for (var i = 0; i < courses.length; i++) {
+            getById("table-body-courses").innerHTML +=
+                "<tr><td>" + courses[i].name +
+                "</td><td>" + courses[i].number +
+                "</td><td>" + courses[i].date +
+                "</td><td>" + courses[i].length +
+                "</td><td>" + courses[i].day +
+                "</td><td>" + courses[i].time +
+                "</td><td>" + courses[i].description + "</td></tr>";
+        }
     }
 };
-*/
+
+var addCourseToTable = function(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc) {
+        getById("table-body-courses").innerHTML += "<tr><td>" + courseName + "</td><td>" + courseNumber + "</td><td>" + courseDate + "</td><td>" + courseLength + "</td><td>" + courseDay + "</td><td>" + courseTime + "</td><td>" + courseDesc + "</td></tr>";
+};
 
 var addClass = function() {
-
-    //checkLocalStorage();
-
     var course = {};
     var courseName = getById("course-name").value;
     var courseNumber = getById("course-number").value.toUpperCase();
@@ -135,10 +146,6 @@ var validateInput = function(courseName, courseNumber, courseDate, courseDesc) {
     return isValid;
 };
 
-var addCourseToTable = function(courseName, courseNumber, courseDate, courseLength, courseDay, courseTime, courseDesc) {
-        getById("table-body-courses").innerHTML += "<tr><td>" + courseName + "</td><td>" + courseNumber + "</td><td>" + courseDate + "</td><td>" + courseLength + "</td><td>" + courseDay + "</td><td>" + courseTime + "</td><td>" + courseDesc + "</td></tr>";
-};
-
 var addLocalStorage = function() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(courses));
 };
@@ -153,8 +160,7 @@ var refreshForm = function() {
 
 
 window.onload = function() {
-
+    getLocalStorage();
     getById("add-class").onclick = addClass;
-    //getLocalStorage();
     getById("course-name").focus();
 }
